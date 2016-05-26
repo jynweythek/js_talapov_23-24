@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript23-24_Rustam_Talapov_AngularJS</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+<div class="wrapper">
+<h2>todo list</h2>
+<div ng-controller="TodoCtrl">
+    <span>Remains <span class="remains">{{remaining()}}</span> from <span class="allDeals">{{todos.length}}</span></span>
+    <ul class="list">
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+    </ul>
+    <div class="typingTask">{{todoText}}</div>
+    <form>
+        <input type="text" ng-model="todoText" placeholder="add new case" ng-model-instant>
+
+        <button ng-click="toList()">To List</button>
+
+        <button class="trash" ng-click="remove()">To Trash</button>
+    </form>
+</div>
+</div>
+</body>
+</html>
